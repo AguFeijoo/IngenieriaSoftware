@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <h2>Iniciar sesión</h2>
+        <p>Ingrese sus credenciales para acceder al panel de Reservas</p>
+    </div>
+    <div>
+        <form action="">
+            <label for="txtUser">Usuario</label>
+            <input type="text" name="user" id="txtUser">
+
+            <label for="txtPassword">Contraseña</label>
+            <input type="password" name="password" id="txtPassword">
+
+            <input type="button" id="btnLogin" value="Iniciar sesión">
+        </form>
+        <p id="msgAlert"></p>
+    </div>
+
+    <script src="../../src/core/login.js"></script>
+    <script src="../../src/app.js"></script>
+</body>
+</html>
