@@ -10,6 +10,16 @@
   <a href="index.html">← Volver al inicio</a>
   <h1>Panel de reservas</h1>
 
+  <form id="filter-form">
+    <label for="filter-check-in">Fecha de check in</label>
+    <input type="date" id="filter-check-in">
+
+    <label for="filter-guest">Huésped</label>
+    <input type="text" id="filter-guest" placeholder="Nombre del huésped">
+
+    <button type="submit">Buscar</button>
+  </form>
+
   <div id="reservations-list"></div>
 </body>
 </html>

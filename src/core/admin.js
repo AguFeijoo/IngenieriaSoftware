@@ -26,3 +26,19 @@ function acceptReservation(reservationId) {
 function rejectReservation(reservationId) {
   updateReservationStatus(reservationId, "rejected");
 }
+
+function matchesCheckIn(reservation, checkIn) {
+  return !checkIn || reservation.checkIn === checkIn;
+}
+
+function matchesGuest(reservation, guestName) {
+  if (!guestName) return true;
+  const fullName = (reservation.firstName + " " + reservation.lastName).toLowerCase();
+  return fullName.includes(guestName.trim().toLowerCase());
+}
+
+function filterReservations(reservations, criteria) {
+  return reservations.filter(function (reservation) {
+    return matchesCheckIn(reservation, criteria.checkIn) && matchesGuest(reservation, criteria.guestName);
+  });
+}

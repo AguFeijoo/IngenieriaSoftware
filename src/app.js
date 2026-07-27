@@ -68,16 +68,32 @@ function showMessage(text, type) {
 
 document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector("#reservations-list")) {
-    renderReservations();
+    renderReservations(getPendingReservations());
+  }
+
+  const filterForm = document.querySelector("#filter-form");
+  if (filterForm) {
+    filterForm.addEventListener("submit", handleFilterSubmit);
   }
 });
 
-function renderReservations() {
+function handleFilterSubmit(event) {
+  event.preventDefault();
+
+  const criteria = {
+    checkIn: document.querySelector("#filter-check-in").value.trim(),
+    guestName: document.querySelector("#filter-guest").value.trim(),
+  };
+
+  const reservations = filterReservations(getPendingReservations(), criteria);
+  renderReservations(reservations, "No existen coincidencias para los datos ingresados");
+}
+
+function renderReservations(reservations, emptyMessage) {
   const list = document.querySelector("#reservations-list");
-  const reservations = getPendingReservations();
 
   if (reservations.length === 0) {
-    list.innerHTML = "<p>No hay reservas confirmadas.</p>";
+    list.innerHTML = "<p>" + (emptyMessage || "No hay reservas confirmadas.") + "</p>";
     return;
   }
 
@@ -95,14 +111,14 @@ function attachDetailButtonListener(reservation) {
     .querySelector("#accept-btn-" + reservation.id)
     .addEventListener("click", function () {
       acceptReservation(reservation.id);
-      renderReservations();
+      renderReservations(getPendingReservations());
     });
 
   document
     .querySelector("#reject-btn-" + reservation.id)
     .addEventListener("click", function () {
       rejectReservation(reservation.id);
-      renderReservations();
+      renderReservations(getPendingReservations());
     });
 }
 
