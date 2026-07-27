@@ -90,6 +90,20 @@ function attachDetailButtonListener(reservation) {
   document
     .querySelector("#detail-btn-" + reservation.id)
     .addEventListener("click", toggleDetail.bind(null, reservation.id));
+
+  document
+    .querySelector("#accept-btn-" + reservation.id)
+    .addEventListener("click", function () {
+      acceptReservation(reservation.id);
+      renderReservations();
+    });
+
+  document
+    .querySelector("#reject-btn-" + reservation.id)
+    .addEventListener("click", function () {
+      rejectReservation(reservation.id);
+      renderReservations();
+    });
 }
 
 function buildReservationCard(reservation) {
