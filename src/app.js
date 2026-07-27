@@ -71,6 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
     renderReservations(getPendingReservations());
   }
 
+  if (document.querySelector("#confirmed-reservations-list")) {
+    renderConfirmedReservations(getConfirmedReservations());
+  }
+
   const filterForm = document.querySelector("#filter-form");
   if (filterForm) {
     filterForm.addEventListener("submit", handleFilterSubmit);
@@ -113,6 +117,9 @@ function attachDetailButtonListener(reservation) {
       acceptReservation(reservation.id);
       showActionMessage("La reserva fue aceptada correctamente");
       renderReservations(getPendingReservations());
+      if (document.querySelector("#confirmed-reservations-list")) {
+        renderConfirmedReservations(getConfirmedReservations());
+      }
     });
 
   document
@@ -128,6 +135,42 @@ function showActionMessage(text) {
   const messageBox = document.querySelector("#action-message");
   if (!messageBox) return;
   messageBox.innerHTML = text;
+}
+
+function renderConfirmedReservations(reservations) {
+  const list = document.querySelector("#confirmed-reservations-list");
+
+  if (reservations.length === 0) {
+    list.innerHTML = "<p>No hay reservas confirmadas.</p>";
+    return;
+  }
+
+  list.innerHTML = reservations.map(buildConfirmedReservationCard).join("");
+
+  reservations.forEach(function (reservation) {
+    document
+      .querySelector("#detail-btn-" + reservation.id)
+      .addEventListener("click", toggleDetail.bind(null, reservation.id));
+  });
+}
+
+function buildConfirmedReservationCard(reservation) {
+  return `
+    <div id="card-${reservation.id}">
+      <p>Número de reserva: ${reservation.id}</p>
+      <p>Huésped: ${reservation.firstName} ${reservation.lastName}</p>
+      <button id="detail-btn-${reservation.id}">Detalle</button>
+      <div id="detail-${reservation.id}" hidden>
+        <p>Email: ${reservation.email}</p>
+        <p>Teléfono: ${reservation.phone}</p>
+        <p>Tipo de habitación: ${reservation.roomType}</p>
+        <p>Cantidad de huéspedes: ${reservation.guestCount}</p>
+        <p>Fecha de ingreso: ${reservation.checkIn}</p>
+        <p>Fecha de salida: ${reservation.checkOut}</p>
+        <p>Solicitudes especiales: ${reservation.specialRequests}</p>
+      </div>
+    </div>
+  `;
 }
 
 function buildReservationCard(reservation) {

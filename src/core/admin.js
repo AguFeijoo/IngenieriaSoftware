@@ -10,6 +10,14 @@ function getPendingReservations() {
   return getAllReservations().filter(isPending);
 }
 
+function isAccepted(reservation) {
+  return reservation.status === "accepted";
+}
+
+function getConfirmedReservations() {
+  return getAllReservations().filter(isAccepted);
+}
+
 function updateReservationStatus(reservationId, status) {
   const reservations = getAllReservations();
   const reservation = reservations.find((r) => r.id === reservationId);
