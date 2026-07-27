@@ -83,13 +83,13 @@ function renderReservations() {
 
   list.innerHTML = reservations.map(buildReservationCard).join("");
 
-  reservations.forEach(function (reservation) {
-    document
-      .querySelector("#detail-btn-" + reservation.id)
-      .addEventListener("click", function () {
-        toggleDetail(reservation.id);
-      });
-  });
+  reservations.forEach(attachDetailButtonListener);
+}
+
+function attachDetailButtonListener(reservation) {
+  document
+    .querySelector("#detail-btn-" + reservation.id)
+    .addEventListener("click", toggleDetail.bind(null, reservation.id));
 }
 
 function buildReservationCard(reservation) {
