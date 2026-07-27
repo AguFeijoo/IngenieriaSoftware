@@ -1,48 +1,15 @@
-// Expected HTML contract (pages/views/bookingForm.html):
-// form#booking-form containing fields: #first-name, #last-name, #email,
-// #room-type (select: standard|double|suite|family), #guest-count,
-// #check-in (date), #check-out (date), #phone (optional),
-// #special-requests (optional), and a message container #booking-message.
+// Lógica de negocio de reservas. No accede al DOM.
+// app.js recolecta los datos del formulario y llama a createBooking(data),
+// gestionando luego la respuesta { success, errors }.
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("#booking-form");
-  if (!form) {
-    return;
-  }
-  form.addEventListener("submit", handleBookingSubmit);
-});
-
-function handleBookingSubmit(event) {
-  event.preventDefault();
-  const form = event.target;
-  const data = {
-    firstName: form.querySelector("#first-name").value.trim(),
-    lastName: form.querySelector("#last-name").value.trim(),
-    email: form.querySelector("#email").value.trim(),
-    roomType: form.querySelector("#room-type").value.trim(),
-    guestCount: form.querySelector("#guest-count").value.trim(),
-    checkIn: form.querySelector("#check-in").value.trim(),
-    checkOut: form.querySelector("#check-out").value.trim(),
-    phone: form.querySelector("#phone").value.trim(),
-    specialRequests: form.querySelector("#special-requests").value.trim(),
-  };
-
+function createBooking(data) {
   const errors = validateForm(data);
   if (errors.length > 0) {
-    showMessage(errors.join("<br>"), "error");
-    return;
+    return { success: false, errors: errors };
   }
 
   saveBookingRequest(data);
-  showMessage("Su reserva se ha realizado correctamente.", "success");
-  form.reset();
-}
-
-function showMessage(text, type) {
-  const messageBox = document.querySelector("#booking-message");
-  messageBox.innerHTML = text;
-  messageBox.classList.remove("error", "success");
-  messageBox.classList.add(type);
+  return { success: true, errors: [] };
 }
 
 function saveBookingRequest(data) {
