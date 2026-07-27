@@ -111,6 +111,7 @@ function attachDetailButtonListener(reservation) {
     .querySelector("#accept-btn-" + reservation.id)
     .addEventListener("click", function () {
       acceptReservation(reservation.id);
+      showActionMessage("La reserva fue aceptada correctamente");
       renderReservations(getPendingReservations());
     });
 
@@ -118,8 +119,15 @@ function attachDetailButtonListener(reservation) {
     .querySelector("#reject-btn-" + reservation.id)
     .addEventListener("click", function () {
       rejectReservation(reservation.id);
+      showActionMessage("La reserva fue rechazada correctamente");
       renderReservations(getPendingReservations());
     });
+}
+
+function showActionMessage(text) {
+  const messageBox = document.querySelector("#action-message");
+  if (!messageBox) return;
+  messageBox.innerHTML = text;
 }
 
 function buildReservationCard(reservation) {
