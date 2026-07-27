@@ -51,4 +51,31 @@ function preReview() {
         document.querySelector("#msgReviewAlert").innerHTML = "Opinión enviada correctamente";
     }
 }
+
+function showReviews() {
+    let reviewsContainer = document.getElementById("reviews-container");
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    if (reviews.length == 0) {
+        reviewsContainer.innerHTML = `<p>¡Sé el primero en dejar una opinión!</p>`;
+    } else {
+        for (let r of reviews) {
+            let stars = "";
+
+            for (let i = 0; i < r.rating; i++) {
+                stars += "&#11088";
+            }
+
+            reviewsContainer.innerHTML += `
+                <div class="card">
+                    <p>${r.name}</p>
+                    <p>${stars}</p>
+                    <p>${r.comment}</p>
+                </div>
+            `;
+        }
+    }
+}
+
+showReviews();
 // ---------- REVIEW ---------- //
