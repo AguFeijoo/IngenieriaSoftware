@@ -19,3 +19,14 @@
 section {
     width: 100%;
 }
+
+#hotelCarousel img {
+    height: 550px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #hotelCarousel img {
+        height: 280px;
+    }
+}
