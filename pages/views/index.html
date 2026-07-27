@@ -36,13 +36,67 @@
 <section id="jumbotronSection" class="d-flex align-items-start align-items-lg-center">
     <div class="container pt-5 pt-lg-0">
         <div class="col-lg-6">
-            <h1 class="display-3 fw-bold">Hotel Las Gaviotas</h1>
+            <h1 class="display-3 fw-bold text-white">Hotel Las Gaviotas</h1>
 
             <p class="lead">
                 Descansá a pocos metros del mar en un ambiente familiar,
                 cómodo y pensado para que disfrutes tus vacaciones.
             </p>
         </div>
+    </div>
+</section>
+
+<section id="gallerySection" class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Conocé nuestras instalaciones</h2>
+            <p class="text-muted">
+                Habitaciones cómodas y espacios diseñados para tu descanso.
+            </p>
+        </div>
+
+        <div id="hotelCarousel" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="3"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="../../imgs/front.jpg" class="d-block w-100" alt="Fachada del hotel">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../imgs/pool.jpg" class="d-block w-100" alt="Piscina">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../imgs/bf1.jpg" class="d-block w-100" alt="Comedor">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../imgs/rSuite1.jpg" class="d-block w-100" alt="Habitación">
+                </div>
+
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+
+        </div>
+
     </div>
 </section>
 
