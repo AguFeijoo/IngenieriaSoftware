@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/index.css">
+    <title>Las Gaviotas | Opiniones</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🏖️ Las Gaviotas</a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="rooms.html">Habitaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookingForm.html">Reservar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Opiniones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section>
+        <div>
+            <h2>Dejar opinión</h2>
+            <p>¡Nos interesa conocer tu experiencia!</p>
+        </div>
+        <div>
+            <form action="">
+                <label for="txtName">Nombre (*)</label>
+                <input type="text" id="txtName" required>
+    
+                <label for="slcRating">Valoración (*)</label>
+                <select id="slcRating" required>
+                    <option value="0">Seleccione una opcón...</option>
+                    <option value="1">&#11088</option>
+                    <option value="2">&#11088&#11088</option>
+                    <option value="3">&#11088&#11088&#11088</option>
+                    <option value="4">&#11088&#11088&#11088&#11088</option>
+                    <option value="5">&#11088&#11088&#11088&#11088&#11088</option>
+                </select>
+                
+                <label for="txtComment">Comentario</label>
+                <input type="text" id="txtComment">
+
+                <input type="button" id="btnSend" value="Enviar">
+            </form>
+
+            <p id="msgReviewAlert"></p>
+        </div>
+    </section>
+
+    <script src="../../src/core/review.js"></script>
+    <script src="../../src/app.js"></script>
+</body>
+</html>
