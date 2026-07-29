@@ -1,0 +1,17 @@
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card .btn {
+    margin-top: auto;
+}
