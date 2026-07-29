@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/index.css">
+  <title>Habitaciones - Las Gaviotas</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">🏖️ Las Gaviotas</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="rooms.html">Habitaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="bookingForm.html">Reservar</a></li>
+                <li class="nav-item"><a class="nav-link" href="reviews.html">Opiniones</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="adminLogin.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+<section class="rooms-section py-5">
+    <div class="container">
+
+        <div class="rooms-header-mobile d-md-none">
+            <h1 class="rooms-header-mobile-title">Habitaciones</h1>
+            <p class="rooms-header-mobile-subtitle">4 tipos de acomodación</p>
+            <p class="rooms-header-mobile-hint">Elegí fechas en cada habitación para verificar disponibilidad</p>
+        </div>
+
+        <div class="rooms-header-desktop d-none d-md-block">
+            <h1 class="rooms-header-title">Habitaciones</h1>
+            <p class="rooms-header-subtitle">4 tipos de acomodación disponibles</p>
+        </div>
+
+        <div class="row g-4 rooms-grid">
+
+            <div class="col-12 col-md-6">
+                <div class="room-card">
+                    <div class="room-card-image">
+                        <span class="room-card-image-icon">🖼️</span>
+                        <span class="room-card-image-text">Foto habitación Estándar</span>
+                        <span class="room-card-image-link">or <u>browse files</u></span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-title-row">
+                            <h3 class="room-card-title">Estándar</h3>
+                            <span class="room-price">$90 <small>/noche</small></span>
+                        </div>
+                        <ul class="room-details">
+                            <li>Hasta 2 huéspedes</li>
+                            <li>1 cama matrimonial</li>
+                            <li>8 unidades disponibles</li>
+                        </ul>
+                        <a href="bookingForm.html" class="room-check-btn">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="room-card">
+                    <div class="room-card-image">
+                        <span class="room-card-image-icon">🖼️</span>
+                        <span class="room-card-image-text">Foto habitación Doble</span>
+                        <span class="room-card-image-link">or <u>browse files</u></span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-title-row">
+                            <h3 class="room-card-title">Doble</h3>
+                            <span class="room-price">$140 <small>/noche</small></span>
+                        </div>
+                        <ul class="room-details">
+                            <li>Hasta 4 huéspedes</li>
+                            <li>1 matrimonial + 2 individuales</li>
+                            <li>6 unidades disponibles</li>
+                        </ul>
+                        <a href="bookingForm.html" class="room-check-btn">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="room-card">
+                    <div class="room-card-image">
+                        <span class="room-card-image-icon">🖼️</span>
+                        <span class="room-card-image-text">Foto Suite</span>
+                        <span class="room-card-image-link">or <u>browse files</u></span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-title-row">
+                            <h3 class="room-card-title">Suite</h3>
+                            <span class="room-price">$190 <small>/noche</small></span>
+                        </div>
+                        <ul class="room-details">
+                            <li>Hasta 2 huéspedes</li>
+                            <li>Jacuzzi y vista al mar</li>
+                            <li>3 unidades disponibles</li>
+                        </ul>
+                        <a href="bookingForm.html" class="room-check-btn">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="room-card">
+                    <div class="room-card-image">
+                        <span class="room-card-image-icon">🖼️</span>
+                        <span class="room-card-image-text">Foto habitación Familiar</span>
+                        <span class="room-card-image-link">or <u>browse files</u></span>
+                    </div>
+                    <div class="room-card-body">
+                        <div class="room-card-title-row">
+                            <h3 class="room-card-title">Familiar</h3>
+                            <span class="room-price">$240 <small>/noche</small></span>
+                        </div>
+                        <ul class="room-details">
+                            <li>Capacidad variable</li>
+                            <li>Distribución en dos ambientes</li>
+                            <li>3 unidades disponibles</li>
+                        </ul>
+                        <a href="bookingForm.html" class="room-check-btn">Reservar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="../../src/core/index.js"></script>
+</body>
+
+</html>
