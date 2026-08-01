@@ -79,3 +79,44 @@ function showReviews() {
 
 showReviews();
 // ---------- REVIEW ---------- //
+
+// ---------- BOOKING ---------- //
+let bookingForm = document.querySelector("#booking-form");
+
+if (bookingForm != null) {
+    bookingForm.addEventListener("submit", handleBookingSubmit);
+}
+
+function handleBookingSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const data = {
+        firstName: form.querySelector("#first-name").value.trim(),
+        lastName: form.querySelector("#last-name").value.trim(),
+        email: form.querySelector("#email").value.trim(),
+        roomType: form.querySelector("#room-type").value.trim(),
+        guestCount: form.querySelector("#guest-count").value.trim(),
+        checkIn: form.querySelector("#check-in").value.trim(),
+        checkOut: form.querySelector("#check-out").value.trim(),
+        phone: form.querySelector("#phone").value.trim(),
+        specialRequests: form.querySelector("#special-requests").value.trim(),
+    };
+
+    const errors = validateForm(data);
+    if (errors.length > 0) {
+        showBookingMessage(errors.join("<br>"), "error");
+        return;
+    }
+
+    saveBookingRequest(data);
+    showBookingMessage("Su reserva se ha realizado correctamente.", "success");
+    form.reset();
+}
+
+function showBookingMessage(text, type) {
+    const messageBox = document.querySelector("#booking-message");
+    messageBox.innerHTML = text;
+    messageBox.classList.remove("error", "success");
+    messageBox.classList.add(type);
+}
+// ---------- BOOKING ---------- //
