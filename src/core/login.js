@@ -10,4 +10,6 @@ function login(user, password){
 
     return result;
 }
+
+if (typeof module !== "undefined") { module.exports = { login }; }
 // ---------- LOGIN ---------- //
