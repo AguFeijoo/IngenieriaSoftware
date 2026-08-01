@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
     <title>Login</title>
 </head>
-<body>
-    <div>
-        <h2>Iniciar sesión</h2>
-        <p>Ingrese sus credenciales para acceder al panel de Reservas</p>
-    </div>
-    <div>
-        <form action="">
-            <label for="txtUser">Usuario</label>
-            <input type="text" name="user" id="txtUser">
+<body class="login-page-body">
+    <div class="login-shell">
+        <div class="login-card">
+            <aside class="login-aside">
+                <div class="login-brand">
+                    <span class="login-logo"></span>
+                    <span class="login-brand-name">Las Gaviotas</span>
+                </div>
+                <div class="login-aside-body">
+                    <h1 class="login-aside-title">Panel de administración</h1>
+                    <p class="login-aside-text">Gestioná las solicitudes de reserva del hotel: confirmá, rechazá y consultá el detalle de cada huésped.</p>
+                </div>
+            </aside>
+            <div class="login-main">
+                <a class="login-back" href="index.html">← Volver</a>
+                <h2 class="login-title">Iniciar sesión</h2>
+                <p class="login-subtitle">Ingresá tus credenciales para acceder a Reservas</p>
+                <form action="" class="login-form">
+                    <label for="txtUser">Usuario</label>
+                    <input type="text" name="user" id="txtUser" placeholder="usuario@lasgaviotas.com">
 
-            <label for="txtPassword">Contraseña</label>
-            <input type="password" name="password" id="txtPassword">
+                    <label for="txtPassword">Contraseña</label>
+                    <input type="password" name="password" id="txtPassword" placeholder="••••••••">
 
-            <input type="button" id="btnLogin" value="Iniciar sesión">
-        </form>
-        <p id="msgAlert"></p>
+                    <input type="button" id="btnLogin" value="Ingresar" class="login-submit">
+                </form>
+                <p id="msgAlert" class="login-alert"></p>
+            </div>
+        </div>
     </div>
 
     <script src="../../src/core/login.js"></script>
