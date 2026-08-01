@@ -30,36 +30,57 @@
         </div>
     </nav>
     
-    <section>
-        <div>
-            <h2>Dejar opinión</h2>
-            <p>¡Nos interesa conocer tu experiencia!</p>
-        </div>
-        <div>
-            <form action="">
-                <label for="txtName">Nombre (*)</label>
-                <input type="text" id="txtName" required>
-    
-                <label for="slcRating">Valoración (*)</label>
-                <select id="slcRating" required>
-                    <option value="0">Seleccione una opcón...</option>
-                    <option value="1">&#11088</option>
-                    <option value="2">&#11088&#11088</option>
-                    <option value="3">&#11088&#11088&#11088</option>
-                    <option value="4">&#11088&#11088&#11088&#11088</option>
-                    <option value="5">&#11088&#11088&#11088&#11088&#11088</option>
-                </select>
-                
-                <label for="txtComment">Comentario</label>
-                <input type="text" id="txtComment">
+    <main>
+    <section class="review-section py-5">
+        <div class="container">
 
-                <input type="button" id="btnSend" value="Enviar">
-            </form>
+            <div class="review-header-mobile d-md-none">
+                <h1 class="review-header-mobile-title">Dejar opinión</h1>
+                <p class="review-header-mobile-subtitle">¡Nos interesa conocer tu experiencia!</p>
+            </div>
 
-            <p id="msgReviewAlert"></p>
+            <div class="review-header-desktop d-none d-md-block">
+                <h1 class="review-header-title">Dejar opinión</h1>
+                <p class="review-header-subtitle">¡Nos interesa conocer tu experiencia!</p>
+            </div>
+
+            <div class="review-card">
+                <form action="" class="review-form">
+                    <div class="review-field">
+                        <label for="txtName">Nombre (*)</label>
+                        <input type="text" id="txtName" required>
+                    </div>
+
+                    <div class="review-field">
+                        <label for="slcRating">Valoración (*)</label>
+                        <select id="slcRating" required>
+                            <option value="0">Seleccione una opcón...</option>
+                            <option value="1">&#11088</option>
+                            <option value="2">&#11088&#11088</option>
+                            <option value="3">&#11088&#11088&#11088</option>
+                            <option value="4">&#11088&#11088&#11088&#11088</option>
+                            <option value="5">&#11088&#11088&#11088&#11088&#11088</option>
+                        </select>
+                    </div>
+
+                    <div class="review-field">
+                        <label for="txtComment">Comentario</label>
+                        <input type="text" id="txtComment">
+                    </div>
+
+                    <input type="button" id="btnSend" class="review-submit" value="Enviar">
+                </form>
+
+                <p id="msgReviewAlert" class="review-message"></p>
+            </div>
+
         </div>
     </section>
+    </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
     <script src="../../src/core/review.js"></script>
     <script src="../../src/app.js"></script>
 </body>

@@ -1,3 +1,7 @@
+.navbar {
+    background-color: #477aaf;
+}
+
 #jumbotronSection {
     background-image: url("../../imgs/j2.jpg");
     background-size: cover;
@@ -826,6 +830,230 @@ section {
         gap: 20px;
     }
 }
+
+/* ---------- REVIEW FORM ---------- */
+
+.review-section {
+    background-color: #eef1f5;
+    min-height: 100vh;
+}
+
+.review-header-desktop {
+    margin-bottom: 32px;
+}
+
+.review-header-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #16344f;
+    margin: 0 0 6px;
+}
+
+.review-header-subtitle {
+    font-size: 1rem;
+    color: #6b7a8c;
+    margin: 0;
+}
+
+.review-header-mobile {
+    background-color: #16344f;
+    color: #fff;
+    padding: 20px 20px 16px;
+    border-radius: 16px;
+    margin: -24px -12px 20px;
+}
+
+.review-header-mobile-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.review-header-mobile-subtitle {
+    font-size: 0.85rem;
+    color: #cdd9e4;
+    margin: 0;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e7ed;
+    box-shadow: 0 4px 14px rgba(15, 40, 66, 0.08);
+    padding: 24px 20px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #16344f;
+    margin-bottom: 6px;
+}
+
+.review-field input,
+.review-field select {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #d4dae2;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #16344f;
+    font-family: inherit;
+    width: 100%;
+}
+
+.review-submit {
+    border: none;
+    background-color: #16344f;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.review-submit:hover {
+    background-color: #204468;
+}
+
+.review-message {
+    font-size: 0.85rem;
+    margin: 16px 0 0;
+    text-align: center;
+}
+
+.review-message:empty {
+    margin: 0;
+}
+
+.review-message.success {
+    color: #1e7a44;
+}
+
+.review-message.error {
+    color: #b1372a;
+}
+
+@media (min-width: 900px) {
+    .review-section {
+        padding-top: 64px;
+    }
+}
+
+/* ---------- REVIEWS LIST ---------- */
+
+.reviews-section {
+    background-color: #eef1f5;
+    min-height: 100vh;
+}
+
+.reviews-header-desktop {
+    margin-bottom: 12px;
+}
+
+.reviews-header-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #16344f;
+    margin: 0 0 6px;
+}
+
+.reviews-header-subtitle {
+    font-size: 1rem;
+    color: #6b7a8c;
+    margin: 0;
+}
+
+.reviews-header-mobile {
+    background-color: #16344f;
+    color: #fff;
+    padding: 20px 20px 16px;
+    border-radius: 16px;
+    margin: -24px -12px 12px;
+}
+
+.reviews-header-mobile-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.reviews-header-mobile-subtitle {
+    font-size: 0.85rem;
+    color: #cdd9e4;
+    margin: 0;
+}
+
+.reviews-cta {
+    margin-bottom: 32px;
+}
+
+.review-cta-btn {
+    display: inline-block;
+    border: none;
+    background-color: #16344f;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.review-cta-btn:hover {
+    background-color: #204468;
+    color: #fff;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.reviews-grid .card {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e7ed;
+    box-shadow: 0 4px 14px rgba(15, 40, 66, 0.08);
+    padding: 20px;
+}
+
+.reviews-grid .card p {
+    margin: 0 0 8px;
+    color: #16344f;
+}
+
+.reviews-grid .card p:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+    .reviews-section {
+        padding-top: 64px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 #hotelCarousel img {
     height: 550px;
     object-fit: cover;
