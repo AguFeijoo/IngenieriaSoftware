@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/gallery.css">
+    <link rel="stylesheet" href="../styles/general.css">
+    <title>Galería</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🏖️ Las Gaviotas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="rooms.html">Habitaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookingForm.html">Reservar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Opiniones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Galería</h2>
+                <p class="text-muted">
+                    Descubrí nuestros espacios.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/j1.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Playa"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/front.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Fachada del hotel"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/pool.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Piscina"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/hall.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Recepción"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/bf1.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Comedor"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/bf2.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Buffet de desayuno"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rDouble.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Habitación doble"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rFamiliar1.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Habitación familiar, dos camas individuales"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rFamiliar2.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Habitación familiar, cama matrimonial"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rStandard.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Habitación estándar"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rSuite1.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Habitación suite"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <img src="../../imgs/rSuite2.jpg"
+                        class="img-fluid rounded shadow gallery-img"
+                        alt="Estar de la suite"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal">
+                </div>
+            </div>
+        </section>
+       <div class="modal fade" id="galleryModal" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-body text-center p-0">
+                        <img id="modalImage" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../src/core/gallery.js"></script>
+</body>
+
+</html>
