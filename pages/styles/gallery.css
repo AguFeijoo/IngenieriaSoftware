@@ -1,0 +1,19 @@
+.gallery-img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery-img:hover{
+    transform:scale(1.03);
+}
+
+.modal-content{
+    background:transparent;
+}
+
+#modalImage{
+    max-height:90vh;
+}
