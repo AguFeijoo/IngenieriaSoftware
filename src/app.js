@@ -1,6 +1,7 @@
 // ---------- BOTONES ---------- //
 let btnLogin = document.querySelector("#btnLogin");
 let btnSendReview = document.querySelector("#btnSend");
+let btnLogout = document.querySelector("#btnLogout");
 // ---------- BOTONES ---------- //
 
 // ---------- LOGIN ---------- //
@@ -22,6 +23,17 @@ function preLogin(){
     }
 }
 // ---------- LOGIN ---------- //
+
+// ---------- LOGOUT ---------- //
+if (btnLogout != null) {
+    btnLogout.addEventListener("click", logout);
+}
+
+function logout(){
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+}
+// ---------- LOGOUT ---------- //
 
 // ---------- REVIEW ---------- //
 if (btnSendReview != null) {
@@ -140,6 +152,14 @@ function showBookingMessage(text, type) {
     messageBox.classList.add(type);
 }
 // ---------- BOOKING ---------- //
+
+// ---------- LOGGED-OUT ADMIN DASHBOARD ---------- //
+if (window.location.pathname.includes("adminDashboard.html")) {
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.replace("adminLogin.html");
+    }
+}
+// ---------- LOGGED-OUT ADMIN DASHBOARD ---------- //
 
 // ---------- ADMIN DASHBOARD ---------- //
 let reservationsList = document.querySelector("#reservations-list");
