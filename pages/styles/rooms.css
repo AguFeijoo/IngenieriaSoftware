@@ -6,12 +6,19 @@
 .card {
     border: none;
     border-radius: 12px;
+    background-color: #f1f3f5;
 }
 
 .card-title {
     font-weight: 600;
 }
 
-.card .btn {
-    margin-top: auto;
+.card .btn-primary {
+    background-color: #477aaf;
+    border-color: #477aaf;
+}
+
+.card .btn-primary:hover {
+    background-color: #3a6690;
+    border-color: #3a6690;
 }

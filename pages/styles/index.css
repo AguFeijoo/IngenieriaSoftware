@@ -1,3 +1,7 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
 #jumbotronSection {
     background-image: url("../../imgs/j2.jpg");
     background-size: cover;
