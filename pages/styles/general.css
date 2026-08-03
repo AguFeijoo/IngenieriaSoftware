@@ -5,3 +5,9 @@
 section {
     width: 100%;
 }
+
+h2{
+    font-weight: bold;
+    color: #477aaf;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
