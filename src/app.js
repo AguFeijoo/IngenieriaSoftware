@@ -57,7 +57,24 @@ function showReviews() {
 
     if (reviewsContainer == null) return;
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    let reviews = JSON.parse(localStorage.getItem("reviews"));
+
+    if (!reviews) {
+        reviews = [
+            {
+                name: "María Gómez",
+                rating: 5,
+                comment: "Excelente atención y muy buena ubicación."
+            },
+            {
+                name: "Juan Pérez",
+                rating: 4,
+                comment: "Muy cómodo. El desayuno fue excelente."
+            }
+        ];
+
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+    }
 
     if (reviews.length == 0) {
         reviewsContainer.innerHTML = `<p>¡Sé el primero en dejar una opinión!</p>`;
