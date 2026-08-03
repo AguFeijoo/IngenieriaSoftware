@@ -1,5 +1,14 @@
+:root {
+    --bs-font-sans-serif: "Roboto", sans-serif;
+    --bs-body-font-family: "Roboto", sans-serif;
+}
+
 body {
     font-family: "Roboto", sans-serif;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
 }
 
 .navbar {

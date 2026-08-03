@@ -21,109 +21,34 @@
 
     <main class="dashboard-main">
         <section class="dashboard-header-mobile d-mobile-only">
-            <h1 class="dashboard-header-mobile-title">Reservas</h1>
-            <p class="dashboard-header-mobile-subtitle">4 solicitudes registradas</p>
+            <h1 class="dashboard-header-mobile-title">Solicitudes de reserva</h1>
+            <p class="dashboard-header-mobile-subtitle" id="reservations-subtitle-mobile">Cargando…</p>
         </section>
 
         <section class="dashboard-header-desktop d-desktop-only">
-            <h1 class="dashboard-header-title">Reservas</h1>
-            <p class="dashboard-header-subtitle">Gestioná las solicitudes de reserva de los huéspedes</p>
+            <h1 class="dashboard-header-title">Solicitudes de reserva</h1>
+            <p class="dashboard-header-subtitle" id="reservations-subtitle-desktop">Cargando…</p>
         </section>
 
-        <section class="dashboard-stats">
-            <div class="stat-card">
-                <span class="stat-value">2</span>
-                <span class="stat-label">Pendientes</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value">1</span>
-                <span class="stat-label">Confirmadas</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value">1</span>
-                <span class="stat-label">Rechazadas</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value">4</span>
-                <span class="stat-label">Total</span>
+        <section class="reservations-toolbar">
+            <label class="reservations-search-label" for="reservations-search">
+                <span class="sr-only">Buscar reserva</span>
+                <span class="reservations-search-icon" aria-hidden="true">&#128269;</span>
+                <input type="text" id="reservations-search" class="reservations-search-input" placeholder="Buscar por huésped, habitación...">
+            </label>
+            <div class="reservations-date-filters">
+                <label class="reservations-date-label">
+                    <span class="sr-only">Desde</span>
+                    <input type="date" id="reservations-date-from" class="reservations-date-input">
+                </label>
+                <label class="reservations-date-label">
+                    <span class="sr-only">Hasta</span>
+                    <input type="date" id="reservations-date-to" class="reservations-date-input">
+                </label>
             </div>
         </section>
 
-        <section class="reservations-grid">
-            <article class="reservation-card">
-                <div class="reservation-card-header">
-                    <h3 class="reservation-guest">María González</h3>
-                    <span class="status-badge status-pending">Pendiente</span>
-                </div>
-                <ul class="reservation-details">
-                    <li><strong>Habitación:</strong> Doble · $140/noche</li>
-                    <li><strong>Fechas:</strong> 12/08/2026 → 16/08/2026</li>
-                    <li><strong>Huéspedes:</strong> 3</li>
-                    <li><strong>Contacto:</strong> maria.gonzalez@email.com · 099 123 456</li>
-                </ul>
-                <p class="reservation-notes">Solicita cuna para bebé y habitación en piso bajo.</p>
-                <div class="reservation-actions">
-                    <button type="button" class="btn-confirm">Confirmar</button>
-                    <button type="button" class="btn-reject">Rechazar</button>
-                    <button type="button" class="btn-detail">Ver detalle</button>
-                </div>
-            </article>
-
-            <article class="reservation-card">
-                <div class="reservation-card-header">
-                    <h3 class="reservation-guest">Juan Pérez</h3>
-                    <span class="status-badge status-confirmed">Confirmada</span>
-                </div>
-                <ul class="reservation-details">
-                    <li><strong>Habitación:</strong> Suite · $190/noche</li>
-                    <li><strong>Fechas:</strong> 03/09/2026 → 07/09/2026</li>
-                    <li><strong>Huéspedes:</strong> 2</li>
-                    <li><strong>Contacto:</strong> juan.perez@email.com · 098 654 321</li>
-                </ul>
-                <div class="reservation-actions">
-                    <button type="button" class="btn-confirm" disabled>Confirmar</button>
-                    <button type="button" class="btn-reject" disabled>Rechazar</button>
-                    <button type="button" class="btn-detail">Ver detalle</button>
-                </div>
-            </article>
-
-            <article class="reservation-card">
-                <div class="reservation-card-header">
-                    <h3 class="reservation-guest">Lucía Fernández</h3>
-                    <span class="status-badge status-pending">Pendiente</span>
-                </div>
-                <ul class="reservation-details">
-                    <li><strong>Habitación:</strong> Estándar · $90/noche</li>
-                    <li><strong>Fechas:</strong> 20/08/2026 → 22/08/2026</li>
-                    <li><strong>Huéspedes:</strong> 1</li>
-                    <li><strong>Contacto:</strong> lucia.fernandez@email.com · 097 456 789</li>
-                </ul>
-                <div class="reservation-actions">
-                    <button type="button" class="btn-confirm">Confirmar</button>
-                    <button type="button" class="btn-reject">Rechazar</button>
-                    <button type="button" class="btn-detail">Ver detalle</button>
-                </div>
-            </article>
-
-            <article class="reservation-card">
-                <div class="reservation-card-header">
-                    <h3 class="reservation-guest">Carlos Ramírez</h3>
-                    <span class="status-badge status-rejected">Rechazada</span>
-                </div>
-                <ul class="reservation-details">
-                    <li><strong>Habitación:</strong> Familiar · $240/noche</li>
-                    <li><strong>Fechas:</strong> 01/07/2026 → 05/07/2026</li>
-                    <li><strong>Huéspedes:</strong> 5</li>
-                    <li><strong>Contacto:</strong> carlos.ramirez@email.com · 096 789 123</li>
-                </ul>
-                <p class="reservation-notes">Rechazada por falta de disponibilidad en esas fechas.</p>
-                <div class="reservation-actions">
-                    <button type="button" class="btn-confirm" disabled>Confirmar</button>
-                    <button type="button" class="btn-reject" disabled>Rechazar</button>
-                    <button type="button" class="btn-detail">Ver detalle</button>
-                </div>
-            </article>
-        </section>
+        <ul class="reservations-list" id="reservations-list"></ul>
     </main>
 
     <script src="../../src/core/admin.js"></script>
