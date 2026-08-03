@@ -1,4 +1,4 @@
-const { addReview } = require('../src/core/review');
+const { addReview } = require('../src/core/reviews');
 
 test("opinion completa agregada", () => {
     expect(addReview("Nombre", 4, "Muy lindo")).toBeTruthy();
