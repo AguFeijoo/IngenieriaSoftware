@@ -54,6 +54,9 @@ function preReview() {
 
 function showReviews() {
     let reviewsContainer = document.getElementById("reviews-container");
+
+    if (reviewsContainer == null) return;
+
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
     if (reviews.length == 0) {
@@ -120,3 +123,114 @@ function showBookingMessage(text, type) {
     messageBox.classList.add(type);
 }
 // ---------- BOOKING ---------- //
+
+// ---------- ADMIN DASHBOARD ---------- //
+let reservationsList = document.querySelector("#reservations-list");
+let searchInput = document.querySelector("#reservations-search");
+let dateFromInput = document.querySelector("#reservations-date-from");
+let dateToInput = document.querySelector("#reservations-date-to");
+let subtitleMobile = document.querySelector("#reservations-subtitle-mobile");
+let subtitleDesktop = document.querySelector("#reservations-subtitle-desktop");
+
+let expandedId = null;
+
+if (reservationsList != null) {
+    reservationsList.addEventListener("click", handleReservationsClick);
+    searchInput.addEventListener("input", renderReservations);
+    dateFromInput.addEventListener("change", renderReservations);
+    dateToInput.addEventListener("change", renderReservations);
+
+    renderReservations();
+}
+
+function handleReservationsClick(event) {
+    let confirmButton = event.target.closest("[data-confirm]");
+    let rejectButton = event.target.closest("[data-reject]");
+    let toggleHeader = event.target.closest("[data-toggle]");
+
+    if (confirmButton != null) {
+        let id = Number(confirmButton.dataset.confirm);
+        updateReservationStatus(id, "confirmed");
+        renderReservations();
+    } else if (rejectButton != null) {
+        let id = Number(rejectButton.dataset.reject);
+        updateReservationStatus(id, "rejected");
+        renderReservations();
+    } else if (toggleHeader != null) {
+        let id = Number(toggleHeader.dataset.toggle);
+        expandedId = expandedId === id ? null : id;
+        renderReservations();
+    }
+}
+
+function renderReservations() {
+    let allReservations = loadReservations();
+    let filtered = filterReservations(
+        allReservations,
+        searchInput.value,
+        dateFromInput.value,
+        dateToInput.value
+    );
+
+    let pending = countByStatus(allReservations, "pending");
+    let subtitleText = formatWeekRange(allReservations) + " · " + pending + " pendientes";
+    subtitleMobile.textContent = subtitleText;
+    subtitleDesktop.textContent = subtitleText;
+
+    if (filtered.length === 0) {
+        reservationsList.innerHTML = `<li class="reservations-empty">No hay solicitudes de reserva que coincidan con la búsqueda.</li>`;
+        return;
+    }
+
+    reservationsList.innerHTML = "";
+
+    for (let reservation of filtered) {
+        reservationsList.innerHTML += buildReservationRow(reservation);
+    }
+}
+
+function buildReservationRow(reservation) {
+    let roomLabel = getRoomTypeLabel(reservation.roomType);
+    let nights = calculateNights(reservation.checkIn, reservation.checkOut);
+    let total = calculateTotalPrice(reservation.roomType, reservation.checkIn, reservation.checkOut);
+    let day = formatDateBadgeDay(reservation.checkIn);
+    let month = formatDateBadgeMonth(reservation.checkIn);
+    let statusLabels = { pending: "Pendiente", confirmed: "Confirmada", rejected: "Rechazada" };
+    let statusLabel = statusLabels[reservation.status];
+    let isPending = reservation.status === "pending";
+    let isExpanded = reservation.id === expandedId;
+    let contacto = reservation.email + (reservation.phone ? " · " + reservation.phone : "");
+    let notes = reservation.specialRequests
+        ? `<p class="reservation-notes">${reservation.specialRequests}</p>`
+        : "";
+
+    return `
+        <li class="reservation-row${isExpanded ? " expanded" : ""}">
+            <div class="reservation-row-header" data-toggle="${reservation.id}">
+                <div class="reservation-date-badge">
+                    <span class="badge-day">${day}</span>
+                    <span class="badge-month">${month}</span>
+                </div>
+                <div class="reservation-row-main">
+                    <h3 class="reservation-guest">${reservation.firstName} ${reservation.lastName}</h3>
+                    <p class="reservation-row-summary">${roomLabel} · ${nights} noches · ${reservation.guestCount} huéspedes</p>
+                </div>
+                <span class="status-badge status-${reservation.status}">${statusLabel}</span>
+                <button type="button" class="reservation-toggle" aria-label="Ver detalle">&#9660;</button>
+            </div>
+            <div class="reservation-row-details">
+                <ul class="reservation-details">
+                    <li><strong>Check-in / out:</strong> ${reservation.checkIn} → ${reservation.checkOut}</li>
+                    <li><strong>Contacto:</strong> ${contacto}</li>
+                    <li><strong>Total estimado:</strong> USD ${total}</li>
+                </ul>
+                ${notes}
+                <div class="reservation-actions">
+                    <button type="button" class="btn-confirm" data-confirm="${reservation.id}" ${isPending ? "" : "disabled"}>Confirmar</button>
+                    <button type="button" class="btn-reject" data-reject="${reservation.id}" ${isPending ? "" : "disabled"}>Rechazar</button>
+                </div>
+            </div>
+        </li>
+    `;
+}
+// ---------- ADMIN DASHBOARD ---------- //
